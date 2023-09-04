@@ -1,4 +1,5 @@
 import css from './Section.module.css';
+import PropTypes from 'prop-types';
 
 const Section = ({ title, children }) => (
   <div className={css.sectionContainer}>
@@ -6,5 +7,9 @@ const Section = ({ title, children }) => (
     {children}
   </div>
 );
+
+Section.propTypes = {
+  title: PropTypes.array,
+};
 
 export default Section;

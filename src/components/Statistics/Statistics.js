@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import css from './Statistic.module.css';
 
 const Statistic = ({ good, neutral, bad, total, positive }) => (
@@ -27,4 +28,13 @@ const Statistic = ({ good, neutral, bad, total, positive }) => (
     </ul>
   </div>
 );
+
+Statistic.propTypes = {
+  options: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+  total: PropTypes.number,
+  positive: PropTypes.number,
+};
+
 export default Statistic;
