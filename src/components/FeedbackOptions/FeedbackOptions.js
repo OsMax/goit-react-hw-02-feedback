@@ -4,32 +4,21 @@ import css from './FeedbackOptions.module.css';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <div className={css.buttonContainer}>
-    <button
-      className={css.button}
-      onClick={onLeaveFeedback(options[0])}
-      type="button"
-    >
-      Good
-    </button>
-    <button
-      className={css.button}
-      onClick={onLeaveFeedback(options[1])}
-      type="button"
-    >
-      Neutral
-    </button>
-    <button
-      className={css.button}
-      onClick={onLeaveFeedback(options[2])}
-      type="button"
-    >
-      Bad
-    </button>
+    {options.map(option => (
+      <button
+        className={css.button}
+        key={option}
+        type="button"
+        onClick={onLeaveFeedback(option)}
+      >
+        {option.charAt(0).toUpperCase() + option.slice(1)}
+      </button>
+    ))}
   </div>
 );
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.array,
+  options: PropTypes.arrayOf(PropTypes.string),
   leaveFeedback: PropTypes.func,
 };
 
